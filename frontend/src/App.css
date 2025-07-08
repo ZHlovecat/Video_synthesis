@@ -1,0 +1,302 @@
+/* 全局样式 */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f5f5;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* 强制确保所有Ant Design组件可以正常滚动 */
+.ant-tabs-content-holder,
+.ant-tabs-tabpane,
+.ant-tabs-content,
+.ant-tabs-tabpane-active {
+  height: auto !important;
+  overflow: visible !important;
+  max-height: none !important;
+  position: static !important;
+}
+
+/* 移除重复规则，统一在后面定义 */
+
+/* 自定义组件样式 */
+.video-upload-area {
+  border: 2px dashed #d9d9d9;
+  border-radius: 8px;
+  padding: 40px;
+  text-align: center;
+  background: #fafafa;
+  transition: all 0.3s ease;
+}
+
+.video-upload-area:hover {
+  border-color: #1890ff;
+  background: #f6ffed;
+}
+
+.video-upload-area.dragover {
+  border-color: #1890ff;
+  background: #e6f7ff;
+}
+
+/* 进度条样式 */
+.progress-container {
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 视频预览样式 */
+.video-preview-item {
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.video-preview-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: #1890ff;
+}
+
+/* 转场效果预览 */
+.transition-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  border: 1px dashed #d9d9d9;
+  border-radius: 4px;
+  background: #fafafa;
+  font-size: 24px;
+}
+
+/* 时间线样式 */
+.timeline-container {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .ant-col {
+    margin-bottom: 16px;
+  }
+
+  .ant-card {
+    margin-bottom: 16px;
+  }
+
+  /* 移动端优化 */
+  .ant-table-wrapper {
+    overflow-x: auto;
+  }
+
+  .ant-select-dropdown {
+    max-width: 90vw !important;
+  }
+
+  .ant-steps {
+    overflow-x: auto;
+  }
+
+  .ant-steps-item-title {
+    font-size: 12px !important;
+  }
+
+  .ant-steps-item-description {
+    font-size: 11px !important;
+  }
+}
+
+/* 修复选择器下拉框样式 */
+.ant-select-item-option-content {
+  white-space: normal !important;
+  word-break: break-word !important;
+}
+
+.ant-select-item {
+  padding: 8px 12px !important;
+  min-height: auto !important;
+}
+
+/* 修复表格在小屏幕上的显示 */
+.ant-table-tbody > tr > td {
+  word-break: break-word;
+  white-space: normal;
+}
+
+/* 修复卡片间距 */
+.ant-card + .ant-card {
+  margin-top: 16px;
+}
+
+/* 可点击步骤样式 */
+.clickable-step .ant-steps-item-title {
+  transition: color 0.3s ease;
+}
+
+.clickable-step:hover .ant-steps-item-title {
+  color: #1890ff !important;
+}
+
+.clickable-step .ant-steps-item-icon {
+  transition: all 0.3s ease;
+}
+
+.clickable-step:hover .ant-steps-item-icon {
+  transform: scale(1.1);
+  border-color: #1890ff !important;
+}
+
+/* 固定头部样式优化 */
+.sticky-header {
+  backdrop-filter: blur(8px);
+  background: rgba(245, 245, 245, 0.95);
+}
+
+/* 返回顶部按钮动画 */
+.back-top-btn {
+  transition: all 0.3s ease;
+}
+
+.back-top-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2) !important;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* 加载动画 */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+/* 成功状态样式 */
+.success-indicator {
+  color: #52c41a;
+  font-weight: bold;
+}
+
+/* 错误状态样式 */
+.error-indicator {
+  color: #ff4d4f;
+  font-weight: bold;
+}
+
+/* 视频合成器布局优化 */
+.video-composer-container {
+  min-height: 100vh;
+  background: #f5f5f5;
+  position: relative;
+}
+
+.video-composer-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #f5f5f5;
+  border-bottom: 1px solid #e8e8e8;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
+}
+
+.video-composer-content {
+  transition: margin-top 0.3s ease;
+  min-height: calc(100vh - 200px);
+  position: relative;
+  z-index: 1;
+}
+
+/* 确保步骤内容有足够的顶部间距 */
+.step-content-wrapper {
+  padding-top: 50px;
+  min-height: 400px;
+  position: relative;
+}
+
+/* 为步骤内容添加一个可视化的顶部边界 */
+.step-content-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #1890ff, #52c41a);
+  border-radius: 1px;
+}
+
+/* 确保步骤指示器在小屏幕上正确显示 */
+@media (max-width: 768px) {
+  .video-composer-header {
+    padding: 12px 16px !important;
+  }
+
+  .video-composer-content {
+    padding: 16px !important;
+  }
+
+  /* 移动端步骤指示器优化 */
+  .ant-steps-horizontal.ant-steps-label-horizontal .ant-steps-item {
+    margin-right: 8px;
+  }
+
+  .ant-steps-item-title {
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+  }
+
+  .ant-steps-item-description {
+    font-size: 10px !important;
+    line-height: 1.2 !important;
+  }
+}
+
+
